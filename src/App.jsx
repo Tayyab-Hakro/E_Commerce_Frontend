@@ -25,15 +25,15 @@ function App() {
     <Navbar/>
    <SearchBar/>
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/collection' element={<Collection/>}/>
-      <Route path='/contact' element={<Contact/>}/>
-      <Route path='/about' element={<About/>}/>
-      <Route path='/product/:productId' element={<Product/>}/>
-      <Route path='/cart' element={<Cart/>}/>
-      <Route path='/order' element={<Order/>}/>
-      <Route path='/placeOrder' element={<PlaceOrder/>}/>
-      <Route path='/login' element={<Login/>}/>      
+      <Route path='/E_Commerce_Frontend/' element={<Home/>}/>
+      <Route path='/E_Commerce_Frontend/collection' element={<Collection/>}/>
+      <Route path='/E_Commerce_Frontend/contact' element={<Contact/>}/>
+      <Route path='/E_Commerce_Frontend/about' element={<About/>}/>
+      <Route path='/E_Commerce_Frontend/product/:productId' element={<Product/>}/>
+      <Route path='/E_Commerce_Frontend/cart' element={<Cart/>}/>
+      <Route path='/E_Commerce_Frontend/order' element={<Order/>}/>
+      <Route path='/E_Commerce_Frontend/placeOrder' element={<PlaceOrder/>}/>
+      <Route path='/E_Commerce_Frontend/login' element={<Login/>}/>      
     </Routes>
       <Footer/> 
  
