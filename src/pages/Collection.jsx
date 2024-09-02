@@ -10,6 +10,12 @@ function Collection() {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [sortType ,Setsorttype] = useState("relevant")
+  const [openfilter , setOpenfilter] = useState(false)
+
+  //Toggle Filer 
+  const ToggleFilter = ()=>{
+setOpenfilter(!openfilter)
+  }
   const toggleCategory = (e) => {
     const value = e.target.value;
     setCategories((prevCategories) =>
@@ -73,11 +79,49 @@ useEffect(()=>{
     <div className="flex flex-col md:flex-row container mx-auto py-8">
       
       {/* Sidebar Filter */}
-      <div className="w-full md:w-1/4 bg-gray-100 p-4 rounded-lg mb-8 md:mb-0">
-        <h2 className="text-xl font-semibold mb-6">Filter</h2>
-        
+      
+      <div className="w-full    md:w-1/4 bg-gray-100 p-4 rounded-lg mb-8 md:mb-0">
+        <h2 className="text-xl font-semibold mb-6" onClick={ToggleFilter}>Filter</h2>
+    {openfilter && (
+      <>
+        <div className="mb-6  ">
+        <h3 className="text-lg font-medium mb-4">Categories</h3>
+        <div className="flex flex-col">
+          <label className="mb-2">
+            <input type="checkbox" className="mr-2" value="Men" onClick={toggleCategory} /> Men
+          </label>
+          <label className="mb-2">
+            <input type="checkbox" className="mr-2" value="Women" onClick={toggleCategory} /> Women
+          </label>
+          <label className="mb-2">
+            <input type="checkbox" className="mr-2" value="Kids" onClick={toggleCategory} /> Kids
+          </label>
+        </div>
+      </div>
+      
+
+      <hr className="border-t border-gray-300 my-6" />
+      <div>
+        <h3 className="text-lg font-medium mb-4">Type</h3>
+        <div className="flex flex-col">
+          <label className="mb-2">
+            <input type="checkbox" className="mr-2" value="Topwear" onClick={toggleSubCategory} /> Topwear
+          </label>
+          <label className="mb-2">
+            <input type="checkbox" className="mr-2" value="Bottomwear" onClick={toggleSubCategory} /> Bottomwear
+          </label>
+          <label className="mb-2">
+            <input type="checkbox" className="mr-2" value="Winterwear" onClick={toggleSubCategory} /> Winterwear
+          </label>
+        </div>
+      </div>
+      </>
+      )
+      
+          } 
+        <div className='sm:hidden md:flex gap-2'>
         {/* Categories Filter */}
-        <div className="mb-6">
+        <div className="mb-6  flex flex-col ">
           <h3 className="text-lg font-medium mb-4">Categories</h3>
           <div className="flex flex-col">
             <label className="mb-2">
@@ -111,7 +155,7 @@ useEffect(()=>{
           </div>
         </div>
       </div>
-      
+      </div>
       {/* Collection Items */}
       <div className="flex-1 p-4">
         <div className="flex justify-between items-center mb-6">
@@ -140,6 +184,7 @@ useEffect(()=>{
         </div>
       </div>
     </div>
+
   );
 }
 
